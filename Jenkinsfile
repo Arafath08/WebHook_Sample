@@ -1,12 +1,10 @@
 pipeline {
     agent any
+
     triggers {
         githubPush()
     }
-//tools {
-      //  maven 'Maven3' // the name you configured
-     // jdk 'JDK11'    // if you need Java too
-  //  }
+
     environment {
         APP_NAME = "sample-webhook-app"
     }
@@ -18,13 +16,13 @@ pipeline {
                 git branch: 'master', url: 'https://github.com/Arafath08/WebHook_Sample.git', credentialsId: 'github-credentials'
             }
         }
-       stages {
-            stage('Debug') {
-                steps {
+
+        stage('Debug') {
+            steps {
                 echo "Triggered by webhook for ${env.GIT_URL}"
             }
         }
-       }
+
         stage('Build') {
             steps {
                 echo "Building the application..."
