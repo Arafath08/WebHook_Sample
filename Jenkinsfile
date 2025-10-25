@@ -9,7 +9,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 echo "Cloning repository..."
-                git branch: 'main', url: 'https://github.com/<your-username>/my-sample-webhook-project.git', credentialsId: 'git-cred'
+                git branch: 'main', url: 'https://github.com/Arafath08/WebHook_Sample.git', credentialsId: 'github-credentials'
             }
         }
 
