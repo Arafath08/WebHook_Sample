@@ -18,7 +18,13 @@ pipeline {
                 git branch: 'master', url: 'https://github.com/Arafath08/WebHook_Sample.git', credentialsId: 'github-credentials'
             }
         }
-
+       stages {
+            stage('Debug') {
+                steps {
+                echo "Triggered by webhook for ${env.GIT_URL}"
+            }
+        }
+       }
         stage('Build') {
             steps {
                 echo "Building the application..."
