@@ -1,10 +1,10 @@
 pipeline {
     agent any
 
-tools {
+//tools {
       //  maven 'Maven3' // the name you configured
-       // jdk 'JDK11'    // if you need Java too
-    }
+     // jdk 'JDK11'    // if you need Java too
+  //  }
     environment {
         APP_NAME = "sample-webhook-app"
     }
