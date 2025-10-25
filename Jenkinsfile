@@ -1,6 +1,8 @@
 pipeline {
     agent any
-
+    triggers {
+        githubPush()
+    }
 //tools {
       //  maven 'Maven3' // the name you configured
      // jdk 'JDK11'    // if you need Java too
