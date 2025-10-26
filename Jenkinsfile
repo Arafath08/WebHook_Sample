@@ -1,6 +1,10 @@
 pipeline {
     agent any
-
+    
+    //tools {
+        //maven 'Maven3'
+        //jdk 'JDK11'
+    //}
     triggers {
         githubPush()
     }
@@ -41,6 +45,17 @@ pipeline {
             steps {
                 echo "Deploying build from Git commit ${GIT_COMMIT}"
                 echo "Build successful for ${APP_NAME}"
+            }
+        }
+         stage('UI Tests (Selenium)') {
+            steps {
+                echo "Executing Selenium UI tests..."
+                sh 'mvn -Dtest=UITest test'
+            }
+            post {
+                always {
+                    junit 'target/surefire-reports/*.xml'
+                }
             }
         }
     }
